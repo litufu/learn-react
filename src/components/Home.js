@@ -5,10 +5,12 @@ export default class Home extends Component {
   constructor(props){
     super(props);
     this.state={
-      age:props.age
+      age:props.age,
+      linkText:'new header'
     }
     this.onMakeOlder = this.onMakeOlder.bind(this)
     this.onHandleClick = this.onHandleClick.bind(this)
+    this.onChangeHeaderText = this.onChangeHeaderText.bind(this)
   }
 
   onMakeOlder() {
@@ -19,6 +21,10 @@ export default class Home extends Component {
 
   onHandleClick(){
     this.props.onGreet(this.state.age)
+  }
+
+  onChangeHeaderText(){
+    this.props.onChangeHeaderText(this.state.linkText)
   }
 
   render() {
@@ -32,6 +38,10 @@ export default class Home extends Component {
         <br/>
         <button onClick={this.onHandleClick}>
           回传，显示年龄
+        </button>
+        <br/>
+        <button onClick={this.onChangeHeaderText}>
+          单击此按钮，将Home组件中的值传递给Header组件，中间通过共同的父组件App
         </button>
         <div>
           hobbies:
