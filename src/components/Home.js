@@ -6,11 +6,13 @@ export default class Home extends Component {
     super(props);
     this.state={
       age:props.age,
+      initialText:props.initialText,
       linkText:'new header'
     }
     this.onMakeOlder = this.onMakeOlder.bind(this)
     this.onHandleClick = this.onHandleClick.bind(this)
     this.onChangeHeaderText = this.onChangeHeaderText.bind(this)
+    this.onChangeText = this.onChangeText.bind(this)
   }
 
   onMakeOlder() {
@@ -27,6 +29,14 @@ export default class Home extends Component {
     this.props.onChangeHeaderText(this.state.linkText)
   }
 
+  onChangeText(event){
+    this.setState(
+      {
+        linkText:event.target.value
+      }
+    )
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,6 +50,11 @@ export default class Home extends Component {
           回传，显示年龄
         </button>
         <br/>
+        <input
+          type='text'
+          default={this.state.initialText}
+          onChange={event=>this.onChangeText(event)}
+        />
         <button onClick={this.onChangeHeaderText}>
           单击此按钮，将Home组件中的值传递给Header组件，中间通过共同的父组件App
         </button>

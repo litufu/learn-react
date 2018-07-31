@@ -38,6 +38,7 @@ class App extends Component {
             age={12}
             user={user}
             onGreet={this.onGreet}
+            initialText={this.state.linkText}
             onChangeHeaderText={this.onChangeHeaderText}
           >
             <p> this is  a child </p>
