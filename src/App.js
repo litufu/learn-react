@@ -5,6 +5,9 @@ import Header from './components/Header'
 
 class App extends Component {
   render() {
+    let user = {
+      hobbies:['run','swim']
+    }
     return (
       <div>
         <div className="App">
@@ -14,7 +17,9 @@ class App extends Component {
           hello world!
         </div>
         <div className="App">
-          <Home />
+          <Home name={'litufu'} age={12} user={user}>
+            <p> this is  a child </p>
+          </Home>
         </div>
       </div>
     );
