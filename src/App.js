@@ -4,6 +4,11 @@ import Home from './components/Home'
 import Header from './components/Header'
 
 class App extends Component {
+  onGreet(age){
+    alert(age)
+  }
+
+
   render() {
     let user = {
       hobbies:['run','swim']
@@ -17,7 +22,7 @@ class App extends Component {
           hello world!
         </div>
         <div className="App">
-          <Home name={'litufu'} age={12} user={user}>
+          <Home name={'litufu'} age={12} user={user} onGreet={this.onGreet}>
             <p> this is  a child </p>
           </Home>
         </div>
